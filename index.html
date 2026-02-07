@@ -306,38 +306,76 @@
             cursor: pointer;
         }
 
-        /* --- MOBILE --- */
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                height: 100vh;
-                background: #000;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: 0.5s;
-            }
+        /* MOBILE NAV */
+@media (max-width: 768px) {
 
-            .nav-links.active {
-                right: 0;
-            }
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
 
-            .hamburger {
-                display: block;
-                z-index: 1001;
-            }
+        background: radial-gradient(circle at top, #050505 0%, #000 100%);
 
-            .services-grid {
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;   /* 🔥 vertical center */
+        align-items: center;       /* 🔥 horizontal center */
+
+        gap: 25px;
+
+        transition: right 0.5s ease;
+        z-index: 1001;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    /* BUTTON STYLE */
+    .nav-links a {
+        width: 70%;
+        text-align: center;
+
+        padding: 14px 0;
+        border-radius: 12px;
+
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+
+        background: rgba(212, 175, 55, 0.08);
+        border: 1px solid rgba(212, 175, 55, 0.4);
+
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        background: var(--primary);
+        color: #000;
+        box-shadow: 0 0 20px var(--primary);
+        transform: scale(1.05);
+    }
+
+    .hamburger {
+        display: block;
+        font-size: 1.7rem;
+        cursor: pointer;
+        z-index: 1002;
+    }
+
+    .services-grid {
                 grid-template-columns: 1fr;
             }
 
             .hero-content h1 {
                 font-size: 2.8rem;
             }
-        }
+}
+
     </style>
 </head>
 
