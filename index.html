@@ -373,6 +373,32 @@
                 overflow: hidden;
             }
         }
+
+
+        @media (max-width: 768px) {
+
+            .filter-group {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                justify-items: center;
+                overflow: visible;
+            }
+
+            /* Make ALL button full width on first row */
+            .filter-btn:first-child {
+                grid-column: 1 / span 2;
+                /* full width */
+                width: 70%;
+            }
+
+            .filter-btn {
+                width: 100%;
+                max-width: 150px;
+                text-align: center;
+            }
+
+        }
     </style>
 </head>
 
