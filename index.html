@@ -4,119 +4,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RonDev | Futuristic Developer</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-
+    <title>The Sharp Cut | Premium Grooming</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <canvas id="particles"></canvas>
-
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">RonDev</a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <a class="navbar-brand fw-bold" href="#">SHARP<span class="text-warning">CUT</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="menu">
-                <ul class="navbar-nav ms-auto">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-uppercase">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#clients">Clients</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Our Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Address</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Futuristic Web Experiences</h1>
-            <div class="typing" id="typing"></div>
-            <a href="#services" class="glow-btn">Explore Now</a>
+    <header id="home" class="hero-section d-flex align-items-center text-center text-white">
+        <div class="container">
+            <h1 class="display-2 fw-bold">MASTER BARBERS</h1>
+            <p class="lead">Premium Haircuts, Beard Trims & Face Scrubs</p>
+            <div class="mt-4">
+                <a href="#services" class="btn btn-warning btn-lg px-4 me-2">View Menu</a>
+                <a href="tel:+123456789" class="btn btn-outline-light btn-lg px-4">Call Now</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="mb-4 text-uppercase fw-bold">Our Specialties</h2>
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <a href="#hair-section" class="service-btn">
+                        <i class="fas fa-cut"></i>
+                        <span>Haircut</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#beard-section" class="service-btn">
+                        <i class="fas fa-hand-sparkles"></i>
+                        <span>Beard Trim</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#massage-section" class="service-btn">
+                        <i class="fas fa-hot-tub"></i>
+                        <span>Massage</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#facial-section" class="service-btn">
+                        <i class="fas fa-frown-open"></i>
+                        <span>Facials</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="section" id="services">
+    <section id="services" class="py-5">
         <div class="container">
-            <h2 class="section-title">Services</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card-futuristic from-left">
-                        <h4>Full Stack Development</h4>
-                        <p>High performance scalable web applications.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-futuristic from-bottom">
-                        <h4>UI/UX Animation</h4>
-                        <p>Futuristic interface with smooth animations.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-futuristic from-right">
-                        <h4>Automation & CRM</h4>
-                        <p>Custom dashboards & enterprise solutions.</p>
+            <h2 class="text-center mb-5 fw-bold">SERVICES & PRICING</h2>
+
+            <div id="hair-section" class="mb-5">
+                <h3 class="border-start border-warning border-4 ps-3 mb-4">Hair Styles</h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card service-card">
+                            <div id="hairCarousel1" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img src="https://via.placeholder.com/400x300"
+                                            class="d-block w-100" alt="Style 1"></div>
+                                    <div class="carousel-item"><img src="https://via.placeholder.com/400x300"
+                                            class="d-block w-100" alt="Style 2"></div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#hairCarousel1"
+                                    data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#hairCarousel1"
+                                    data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Classic Fade</h5>
+                                <p class="card-text text-warning fw-bold">$25.00</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WORK -->
-    <section class="section" id="work">
+    <section id="team" class="py-5 bg-dark text-white">
         <div class="container">
-            <h2 class="section-title">Our Work</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card-futuristic zoom">
-                        <h5>Parking System</h5>
-                        <p>Vehicle management automation platform.</p>
-                        <a href="#" class="glow-btn-sm">Live Preview</a>
-                    </div>
+            <h2 class="text-center mb-5">MEET OUR EXPERTS</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4 text-center">
+                    <img src="https://via.placeholder.com/150"
+                        class="rounded-circle mb-3 border border-warning border-3" alt="Barber 1">
+                    <h4>Alex Rivers</h4>
+                    <p class="text-muted">Master Stylist</p>
+                    <a href="tel:1234567" class="btn btn-sm btn-warning"><i class="fas fa-phone"></i> Call Alex</a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://via.placeholder.com/150"
+                        class="rounded-circle mb-3 border border-warning border-3" alt="Barber 2">
+                    <h4>Sam Smith</h4>
+                    <p class="text-muted">Beard Specialist</p>
+                    <a href="tel:7654321" class="btn btn-sm btn-warning"><i class="fas fa-phone"></i> Call Sam</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CLIENT COUNTER -->
-    <section class="section text-center" id="clients">
-        <h2 class="section-title">Trusted By</h2>
-        <div class="counter" data-target="120">0</div>
-        <p>Happy Clients</p>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
+    <footer id="contact" class="py-4 bg-black text-white text-center">
         <div class="container">
-            <h2 class="section-title">Connect With Me</h2>
-            <form class="row g-3">
-                <div class="col-md-6"><input type="text" class="form-control custom-input" placeholder="Name"></div>
-                <div class="col-md-6"><input type="email" class="form-control custom-input" placeholder="Email"></div>
-                <div class="col-12"><textarea class="form-control custom-input" rows="4"
-                        placeholder="Message"></textarea></div>
-                <div class="col-12 text-center"><button class="glow-btn">Send Message</button></div>
-            </form>
+            <p><i class="fas fa-map-marker-alt text-warning"></i> 123 Main Street, Your City, State</p>
+            <p><i class="fas fa-clock text-warning"></i> Mon - Sat: 9:00 AM - 9:00 PM</p>
+            <hr class="bg-secondary">
+            <p>&copy; 2024 Sharp Cut Salon. Designed for Success.</p>
         </div>
-    </section>
-
-    <footer>
-        <p>© 2026 RonDev | Futuristic Portfolio</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
