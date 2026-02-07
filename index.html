@@ -380,7 +380,11 @@
 
     <header>
         <a href="#" class="logo">AMIT <span>SALOON</span></a>
-        <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+
+        <div class="hamburger" onclick="toggleMenu()" id="hamburgerBtn">
+            <i class="fas fa-bars" id="menuIcon"></i>
+        </div>
+
         <ul class="nav-links" id="navLinks">
             <li><a href="#home" onclick="toggleMenu()">Home</a></li>
             <li><a href="#services" onclick="toggleMenu()">Services</a></li>
@@ -491,16 +495,26 @@
 
     <script>
         function toggleMenu() {
+
             const nav = document.getElementById('navLinks');
+            const icon = document.getElementById('menuIcon');
+
             nav.classList.toggle('active');
 
             if (nav.classList.contains('active')) {
                 document.body.classList.add('menu-open');
+
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+
             } else {
                 document.body.classList.remove('menu-open');
+
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
             }
         }
-        
+
         function filterS(cat) {
             let cards = document.querySelectorAll('.card');
             let btns = document.querySelectorAll('.filter-btn');
