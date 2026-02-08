@@ -171,22 +171,71 @@
             transform: translateY(-5px);
         }
 
-        /* The Gallery inside the card */
+        /* AMAZON STYLE HORIZONTAL SLIDER */
+
         .card-gallery {
             position: relative;
             height: 300px;
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
+            overflow: hidden;
         }
 
-        .card-gallery img {
+        .slider {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
             min-width: 100%;
             height: 100%;
             object-fit: cover;
-            scroll-snap-align: start;
             cursor: pointer;
+        }
+
+        /* Arrows */
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            color: white;
+            font-size: 18px;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 5;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Dots */
+        .dots {
+            position: absolute;
+            bottom: 12px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .dots span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #bbb;
+            margin: 0 4px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dots span.active {
+            background: var(--gold);
         }
 
         .swipe-indicator {
@@ -440,7 +489,7 @@
         <br>
 
         <div class="filter-group">
-            <button class="filter-btn active" onclick="filterS('all')">All Services</button>
+            <!-- <button class="filter-btn active" onclick="filterS('all')">All Services</button> -->
             <button class="filter-btn" onclick="filterS('hair')">Hair Cuts</button>
             <button class="filter-btn" onclick="filterS('beard')">Beard Cuts</button>
             <button class="filter-btn" onclick="filterS('massage')">Massages</button>
@@ -449,55 +498,516 @@
     </div>
 
     <section class="services-grid">
-        <div class="card beard">
-            <div class="card-gallery">
-                <img src="https://images.unsplash.com/photo-1599351431247-f10b21817021" onclick="openLight(this.src)">
-                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1" onclick="openLight(this.src)">
-                <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033" onclick="openLight(this.src)">
-                <div class="swipe-indicator">Swipe <i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="card-info">
-                <h3>Italian Beard Sculpt</h3>
-                <p>Sharp lines and moisturizing oil treatment for a royal look.</p>
-                <div class="card-footer">
-                    <span class="price">₹120</span>
-                    <a href="https://wa.me/919876543210" class="book-btn">Book Now</a>
-                </div>
-            </div>
-        </div>
 
+        <!-- ===================== HAIR CUTS (6) ===================== -->
+
+        <!-- HAIR 1 -->
         <div class="card hair">
             <div class="card-gallery">
-                <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70" onclick="openLight(this.src)">
-                <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486" onclick="openLight(this.src)">
-                <div class="swipe-indicator">Swipe <i class="fas fa-arrow-right"></i></div>
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70" class="slide">
+                    <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186" class="slide">
+                    <img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8" class="slide">
+                    <img src="https://images.unsplash.com/photo-1520975922215-2306b7a3f0e6" class="slide">
+                    <img src="https://images.unsplash.com/photo-1562004760-aceed7bb0fe3" class="slide">
+                </div><button class="prev">❮</button><button class="next">❯</button>
+                <div class="dots"></div>
             </div>
             <div class="card-info">
                 <h3>Urban Skin Fade</h3>
-                <p>Modern gradient fade with precision top trim.</p>
-                <div class="card-footer">
-                    <span class="price">₹180</span>
-                    <a href="https://wa.me/919876543210" class="book-btn">Book Now</a>
+                <p>Modern fade look.</p>
+                <div class="card-footer"><span class="price">₹180</span></div>
+            </div>
+        </div>
+
+        <!-- HAIR 2 -->
+        <div class="card hair">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033" class="slide">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1" class="slide">
+                    <img src="https://images.unsplash.com/photo-1593702288056-fb8f3b5c45f4" class="slide">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486" class="slide">
+                    <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b" class="slide">
+                </div><button class="prev">❮</button><button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Classic Side Part</h3>
+                <p>Gentleman style.</p>
+                <div class="card-footer"><span class="price">₹150</span></div>
+            </div>
+        </div>
+
+        <!-- HAIR 3 -->
+        <div class="card hair">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b" class="slide">
+                    <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186" class="slide">
+                    <img src="https://images.unsplash.com/photo-1562004760-aceed7bb0fe3" class="slide">
+                    <img src="https://images.unsplash.com/photo-1520975922215-2306b7a3f0e6" class="slide">
+                    <img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8" class="slide">
+                </div><button class="prev">❮</button><button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Textured Crop</h3>
+                <p>Messy modern cut.</p>
+                <div class="card-footer"><span class="price">₹170</span></div>
+            </div>
+        </div>
+
+        <!-- HAIR 4 -->
+        <div class="card hair">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1593702288056-fb8f3b5c45f4" class="slide">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486" class="slide">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70" class="slide">
+                    <img src="https://images.unsplash.com/photo-1562004760-aceed7bb0fe3" class="slide">
+                    <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186" class="slide">
+                </div><button class="prev">❮</button><button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Pompadour</h3>
+                <p>Volume style.</p>
+                <div class="card-footer"><span class="price">₹200</span></div>
+            </div>
+        </div>
+
+        <!-- HAIR 5 -->
+        <div class="card hair">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1520975922215-2306b7a3f0e6" class="slide">
+                    <img src="https://images.unsplash.com/photo-1562004760-aceed7bb0fe3" class="slide">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70" class="slide">
+                    <img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8" class="slide">
+                    <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186" class="slide">
+                </div><button class="prev">❮</button><button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Crew Cut</h3>
+                <p>Clean everyday look.</p>
+                <div class="card-footer"><span class="price">₹130</span></div>
+            </div>
+        </div>
+
+        <!-- HAIR 6 -->
+        <div class="card hair">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1562004760-aceed7bb0fe3" class="slide">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70" class="slide">
+                    <img src="https://images.unsplash.com/photo-1520975922215-2306b7a3f0e6" class="slide">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486" class="slide">
+                    <img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8" class="slide">
+                </div><button class="prev">❮</button><button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Spiky Style</h3>
+                <p>Trendy spikes.</p>
+                <div class="card-footer"><span class="price">₹175</span></div>
+            </div>
+        </div>
+
+        <!-- ===================== BEARD (6) ===================== -->
+
+        <div class="card beard">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1599351431247-f10b21817021" class="slide">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1" class="slide">
+                    <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b" class="slide">
+                    <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186" class="slide">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033" class="slide">
                 </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Italian Beard Sculpt</h3>
+                <p>Sharp lines & premium finish.</p>
+                <div class="card-footer"><span class="price">₹120</span></div>
+            </div>
+        </div>
+
+        <div class="card beard">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033" class="slide">
+                    <img src="https://images.unsplash.com/photo-1599351431247-f10b21817021" class="slide">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1" class="slide">
+                    <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b" class="slide">
+                    <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Royal Trim</h3>
+                <p>Clean shaping with razor finish.</p>
+                <div class="card-footer"><span class="price">₹100</span></div>
+            </div>
+        </div>
+
+
+        <div class="card beard">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b" class="slide">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033" class="slide">
+                    <img src="https://images.unsplash.com/photo-1599351431247-f10b21817021" class="slide">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1" class="slide">
+                    <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>French Cut</h3>
+                <p>Modern chin-focused style.</p>
+                <div class="card-footer"><span class="price">₹110</span></div>
+            </div>
+        </div>
+
+        <div class="card beard">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186" class="slide">
+                    <img src="https://images.unsplash.com/photo-1599351431247-f10b21817021" class="slide">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033" class="slide">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1" class="slide">
+                    <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Corporate Beard</h3>
+                <p>Professional clean finish.</p>
+                <div class="card-footer"><span class="price">₹130</span></div>
+            </div>
+        </div>
+
+        <div class="card beard">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1" class="slide">
+                    <img src="https://images.unsplash.com/photo-1599351431247-f10b21817021" class="slide">
+                    <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b" class="slide">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033" class="slide">
+                    <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Full Beard Shape</h3>
+                <p>Complete shaping & hot towel.</p>
+                <div class="card-footer"><span class="price">₹150</span></div>
+            </div>
+        </div>
+
+        <div class="card beard">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1599351431247-f10b21817021" class="slide">
+                    <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186" class="slide">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1" class="slide">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033" class="slide">
+                    <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Luxury Beard Spa</h3>
+                <p>Wash, oil massage & styling.</p>
+                <div class="card-footer"><span class="price">₹200</span></div>
             </div>
         </div>
 
         <div class="card massage">
             <div class="card-gallery">
-                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80" onclick="openLight(this.src)">
-                <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80"
-                    onclick="openLight(this.src)">
-                <div class="swipe-indicator">Swipe <i class="fas fa-arrow-right"></i></div>
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874" class="slide">
+                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1" class="slide">
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03" class="slide">
+                    <img src="https://images.unsplash.com/photo-1591343395082-e120087004b4" class="slide">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Full Body Massage</h3>
+                <p>Deep relaxation therapy.</p>
+                <div class="card-footer"><span class="price">₹600</span></div>
+            </div>
+        </div>
+
+        <div class="card massage">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1" class="slide">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874" class="slide">
+                    <img src="https://images.unsplash.com/photo-1591343395082-e120087004b4" class="slide">
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03" class="slide">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
             </div>
             <div class="card-info">
                 <h3>Head & Shoulder Spa</h3>
-                <p>Relaxing deep tissue massage to relieve stress.</p>
-                <div class="card-footer">
-                    <span class="price">₹250</span>
-                    <a href="https://wa.me/919876543210" class="book-btn">Book Now</a>
-                </div>
+                <p>Relieve stress & tension.</p>
+                <div class="card-footer"><span class="price">₹250</span></div>
             </div>
         </div>
+
+        <div class="card massage">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03" class="slide">
+                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1" class="slide">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874" class="slide">
+                    <img src="https://images.unsplash.com/photo-1591343395082-e120087004b4" class="slide">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Hot Oil Therapy</h3>
+                <p>Warm oil muscle relaxation.</p>
+                <div class="card-footer"><span class="price">₹350</span></div>
+            </div>
+        </div>
+
+        <div class="card massage">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1591343395082-e120087004b4" class="slide">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874" class="slide">
+                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1" class="slide">
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03" class="slide">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Stress Relief Massage</h3>
+                <p>Calming mind & body therapy.</p>
+                <div class="card-footer"><span class="price">₹400</span></div>
+            </div>
+        </div>
+
+
+        <div class="card massage">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35" class="slide">
+                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1" class="slide">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874" class="slide">
+                    <img src="https://images.unsplash.com/photo-1591343395082-e120087004b4" class="slide">
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Ayurvedic Therapy</h3>
+                <p>Traditional herbal massage.</p>
+                <div class="card-footer"><span class="price">₹450</span></div>
+            </div>
+        </div>
+
+
+        <div class="card massage">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874" class="slide">
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03" class="slide">
+                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1" class="slide">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35" class="slide">
+                    <img src="https://images.unsplash.com/photo-1591343395082-e120087004b4" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Sports Recovery</h3>
+                <p>Muscle repair & recovery.</p>
+                <div class="card-footer"><span class="price">₹500</span></div>
+            </div>
+        </div>
+
+
+        <div class="card massage">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874" class="slide">
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03" class="slide">
+                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1" class="slide">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35" class="slide">
+                    <img src="https://images.unsplash.com/photo-1591343395082-e120087004b4" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Sports Recovery</h3>
+                <p>Muscle repair & recovery.</p>
+                <div class="card-footer"><span class="price">₹500</span></div>
+            </div>
+        </div>
+
+
+        <div class="card facial">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881" class="slide">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348" class="slide">
+                    <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2" class="slide">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9" class="slide">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Gold Facial</h3>
+                <p>Luxury glow treatment.</p>
+                <div class="card-footer"><span class="price">₹500</span></div>
+            </div>
+        </div>
+
+
+        <div class="card facial">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348" class="slide">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881" class="slide">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9" class="slide">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" class="slide">
+                    <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Charcoal Detox</h3>
+                <p>Deep pore cleansing.</p>
+                <div class="card-footer"><span class="price">₹450</span></div>
+            </div>
+        </div>
+
+
+        <div class="card facial">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2" class="slide">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881" class="slide">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348" class="slide">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9" class="slide">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Diamond Glow</h3>
+                <p>Premium shine & radiance.</p>
+                <div class="card-footer"><span class="price">₹700</span></div>
+            </div>
+        </div>
+
+
+        <div class="card facial">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9" class="slide">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348" class="slide">
+                    <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2" class="slide">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881" class="slide">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Anti Aging Facial</h3>
+                <p>Skin tightening & renewal.</p>
+                <div class="card-footer"><span class="price">₹650</span></div>
+            </div>
+        </div>
+
+
+        <div class="card facial">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" class="slide">
+                    <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2" class="slide">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348" class="slide">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881" class="slide">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Acne Control</h3>
+                <p>Oil & breakout management.</p>
+                <div class="card-footer"><span class="price">₹480</span></div>
+            </div>
+        </div>
+
+
+        <div class="card facial">
+            <div class="card-gallery">
+                <div class="slider">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881" class="slide">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" class="slide">
+                    <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2" class="slide">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348" class="slide">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9" class="slide">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <div class="dots"></div>
+            </div>
+            <div class="card-info">
+                <h3>Herbal Clean Up</h3>
+                <p>Natural glow therapy.</p>
+                <div class="card-footer"><span class="price">₹400</span></div>
+            </div>
+        </div>
+
+
     </section>
 
     <hr>
@@ -605,7 +1115,113 @@
         function closeLight() {
             document.getElementById('lightbox').style.display = "none";
         }
+
+        document.querySelectorAll('.card').forEach(card => {
+
+            const slider = card.querySelector('.slider');
+            const slides = card.querySelectorAll('.slide');
+            const prevBtn = card.querySelector('.prev');
+            const nextBtn = card.querySelector('.next');
+            const dotsContainer = card.querySelector('.dots');
+
+            let index = 0;
+
+            /* Create dots */
+            slides.forEach((_, i) => {
+                let dot = document.createElement("span");
+                dot.addEventListener("click", () => moveTo(i));
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = dotsContainer.querySelectorAll("span");
+
+            function updateDots() {
+                dots.forEach(d => d.classList.remove("active"));
+                dots[index].classList.add("active");
+            }
+
+            function moveTo(i) {
+                index = i;
+                slider.style.transform = `translateX(-${index * 100}%)`;
+                updateDots();
+            }
+
+            prevBtn.addEventListener("click", () => {
+                index = (index - 1 + slides.length) % slides.length;
+                moveTo(index);
+            });
+
+            nextBtn.addEventListener("click", () => {
+                index = (index + 1) % slides.length;
+                moveTo(index);
+            });
+
+            updateDots();
+
+            /* Swipe Support */
+            let startX = 0;
+
+            slider.addEventListener("touchstart", e => {
+                startX = e.touches[0].clientX;
+            });
+
+            slider.addEventListener("touchend", e => {
+                let endX = e.changedTouches[0].clientX;
+                if (startX - endX > 50) nextBtn.click();
+                if (endX - startX > 50) prevBtn.click();
+            });
+
+            /* Lightbox */
+            slides.forEach((img, i) => {
+                img.addEventListener("click", () => openLightbox(slides, i));
+            });
+
+        });
+
+
+        /* FULLSCREEN HORIZONTAL LIGHTBOX */
+
+        const lightbox = document.getElementById("lightbox");
+        const lightImg = document.getElementById("lightImg");
+
+        let lbSlides = [];
+        let lbIndex = 0;
+
+        function openLightbox(slides, i) {
+            lbSlides = slides;
+            lbIndex = i;
+            lightbox.style.display = "flex";
+            renderLightbox();
+        }
+
+        function renderLightbox() {
+            lightImg.src = lbSlides[lbIndex].src;
+        }
+
+        function closeLight() {
+            lightbox.style.display = "none";
+        }
+
+        /* Swipe in fullscreen */
+        let lbStartX = 0;
+
+        lightbox.addEventListener("touchstart", e => {
+            lbStartX = e.touches[0].clientX;
+        });
+
+        lightbox.addEventListener("touchend", e => {
+            let lbEndX = e.changedTouches[0].clientX;
+            if (lbStartX - lbEndX > 50) {
+                lbIndex = (lbIndex + 1) % lbSlides.length;
+            }
+            if (lbEndX - lbStartX > 50) {
+                lbIndex = (lbIndex - 1 + lbSlides.length) % lbSlides.length;
+            }
+            renderLightbox();
+        });
+
     </script>
+
 </body>
 
 </html>
