@@ -425,23 +425,17 @@
 
             .filter-group {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-                justify-items: center;
-                overflow: visible;
-            }
-
-            /* Make ALL button full width on first row */
-            .filter-btn:first-child {
-                grid-column: 1 / span 2;
-                /* full width */
-                width: 70%;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+                width: 100%;
+                padding: 0 10px;
             }
 
             .filter-btn {
                 width: 100%;
-                max-width: 150px;
                 text-align: center;
+                padding: 12px 0;
+                font-size: 0.9rem;
             }
 
         }
