@@ -487,10 +487,10 @@
 
         <div class="filter-group">
             <!-- <button class="filter-btn active" onclick="filterS('all')">All Services</button> -->
-            <button class="filter-btn" onclick="filterS('hair')">Hair Cuts</button>
-            <button class="filter-btn" onclick="filterS('beard')">Beard Cuts</button>
-            <button class="filter-btn" onclick="filterS('massage')">Massages</button>
-            <button class="filter-btn" onclick="filterS('facial')">Facial</button>
+            <button class="filter-btn" onclick="filterS('hair', this)">Hair Cuts</button>
+            <button class="filter-btn" onclick="filterS('beard', this)">Beard Cuts</button>
+            <button class="filter-btn" onclick="filterS('massage', this)">Massages</button>
+            <button class="filter-btn" onclick="filterS('facial', this)">Facial</button>
         </div>
     </div>
 
@@ -1070,11 +1070,13 @@
             }
         }
 
-        function filterS(cat) {
+        function filterS(cat, el = null) {
             let cards = document.querySelectorAll('.card');
             let btns = document.querySelectorAll('.filter-btn');
+
             btns.forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
+
+            if (el) el.classList.add('active');
 
             cards.forEach(c => {
                 if (c.classList.contains(cat)) {
