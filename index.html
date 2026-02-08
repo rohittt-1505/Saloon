@@ -172,7 +172,6 @@
         }
 
         /* AMAZON STYLE HORIZONTAL SLIDER */
-
         .card-gallery {
             position: relative;
             height: 300px;
@@ -182,7 +181,7 @@
         .slider {
             display: flex;
             height: 100%;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.4s ease-in-out;
         }
 
         .slide {
@@ -192,7 +191,6 @@
             cursor: pointer;
         }
 
-        /* Arrows */
         .prev,
         .next {
             position: absolute;
@@ -200,7 +198,7 @@
             transform: translateY(-50%);
             background: rgba(0, 0, 0, 0.6);
             border: none;
-            color: white;
+            color: #fff;
             font-size: 18px;
             padding: 8px 12px;
             cursor: pointer;
@@ -216,7 +214,6 @@
             right: 10px;
         }
 
-        /* Dots */
         .dots {
             position: absolute;
             bottom: 12px;
@@ -839,7 +836,6 @@
             </div>
         </div>
 
-
         <div class="card massage">
             <div class="card-gallery">
                 <div class="slider">
@@ -859,28 +855,6 @@
                 <div class="card-footer"><span class="price">₹500</span></div>
             </div>
         </div>
-
-
-        <div class="card massage">
-            <div class="card-gallery">
-                <div class="slider">
-                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874" class="slide">
-                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03" class="slide">
-                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1" class="slide">
-                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35" class="slide">
-                    <img src="https://images.unsplash.com/photo-1591343395082-e120087004b4" class="slide">
-                </div>
-                <button class="prev">❮</button>
-                <button class="next">❯</button>
-                <div class="dots"></div>
-            </div>
-            <div class="card-info">
-                <h3>Sports Recovery</h3>
-                <p>Muscle repair & recovery.</p>
-                <div class="card-footer"><span class="price">₹500</span></div>
-            </div>
-        </div>
-
 
         <div class="card facial">
             <div class="card-gallery">
@@ -1103,17 +1077,17 @@
             event.target.classList.add('active');
 
             cards.forEach(c => {
-                if (cat === 'all' || c.classList.contains(cat)) c.style.display = "block";
-                else c.style.display = "none";
+                if (c.classList.contains(cat)) {
+                    c.style.display = "";
+                } else {
+                    c.style.display = "none";
+                }
             });
         }
 
         function openLight(src) {
             document.getElementById('lightImg').src = src;
             document.getElementById('lightbox').style.display = "flex";
-        }
-        function closeLight() {
-            document.getElementById('lightbox').style.display = "none";
         }
 
         document.querySelectorAll('.card').forEach(card => {
