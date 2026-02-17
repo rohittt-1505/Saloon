@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --gold: #d4af37;
+    --gold-glow: rgba(212, 175, 55, 0.3);
+    --dark: #0a0a0a;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+    --text-dim: #b0b0b0;
+    --gradient: linear-gradient(135deg, #d4af37 0%, #f7e08a 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--dark);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+/* Header & Nav */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.5rem, 10vw, 5.5rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+    color: var(--gold);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.book-btn {
+    padding: 15px 45px;
+    background: var(--gradient);
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: 0.4s;
+    display: inline-block;
+}
+
+.book-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--gold-glow);
+}
+
+/* Filter Section */
+.filter-section {
+    padding: 80px 5% 40px;
+    text-align: center;
+}
+
+.filter-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: #fff;
+    padding: 10px 25px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: 0.3s;
+    font-size: 0.85rem;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--gold);
+    color: #000;
+    border-color: var(--gold);
+}
+
+/* Cards Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 8% 80px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.card-gallery {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: 0.5s ease;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    object-fit: cover;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card:hover .prev,
+.card:hover .next {
+    opacity: 1;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.card-info {
+    padding: 25px;
+}
+
+.card-info h3 {
+    font-family: 'Cinzel';
+    color: var(--gold);
+    font-size: 1.3rem;
+}
+
+.card-info p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin: 5px 0 15px;
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Team Section */
+.team-section {
+    padding: 80px 8%;
+    text-align: center;
+    background: #0f0f0f;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.member-card {
+    width: 250px;
+    text-align: center;
+}
+
+.member-card img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--gold);
+    margin-bottom: 20px;
+    filter: grayscale(100%);
+    transition: 0.4s;
+}
+
+.member-card:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* Floating Call Button */
+.fab-call {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--gradient);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 24px;
+    z-index: 999;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    text-decoration: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        background: rgba(10, 10, 10, 0.95);
+        width: 80%;
+        height: 100vh;
+        flex-direction: column;
+        padding: 50px;
+        transition: 0.5s;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+}
